@@ -3,6 +3,7 @@ Aim: Hold RMB
 Exit: Press Numpad 6 (hear beep confirmation)  
 
 **Note**:  
+- Required libraries: pywin32, numpy, opencv-python, mss
 - enemyIndic3.png in the same folder
 - Running in 1920x1080 resolution  
 
