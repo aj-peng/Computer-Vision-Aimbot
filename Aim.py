@@ -9,7 +9,7 @@ import mss
 
 
 class AimConfig:
-    """Configuration settings for the aim assist program"""
+    """Configuration settings"""
     
     def __init__(self):
         self.screen_width = 1920
@@ -30,8 +30,8 @@ class AimConfig:
         }
 
 
-class AimAssist:
-    """Main aim assist controller"""
+class Aimbot:
+    """Aimbot controller"""
     
     def __init__(self):
         self.config = AimConfig()
@@ -44,9 +44,9 @@ class AimAssist:
         self.template_center_y = self.template_h // 2
         
         # Sensitivity settings
-        self.roblox_sensitivity = 0.55
-        self.pf_mouse_sensitivity = 0.5
-        self.pf_aim_sensitivity = 1
+        self.game_sensitivity = 0.55
+        self.mouse_sensitivity = 0.5
+        self.aim_sensitivity = 1
         self.movement_compensation = 0.2
         
         self.final_sensitivity = self._calculate_sensitivity()
@@ -58,13 +58,13 @@ class AimAssist:
     
     def _calculate_sensitivity(self):
         """Calculate final sensitivity multiplier"""
-        pf_sensitivity = self.pf_mouse_sensitivity * self.pf_aim_sensitivity
-        return ((self.roblox_sensitivity * pf_sensitivity) / 0.55) + self.movement_compensation
+        pf_sensitivity = self.mouse_sensitivity * self.aim_sensitivity
+        return ((self.game_sensitivity * pf_sensitivity) / 0.55) + self.movement_compensation
     
     def should_exit(self):
-        """Check if exit key is pressed (Numpad 6)"""
-        return win32api.GetAsyncKeyState(0x6) < 0
-    
+        """Check if exit key is pressed (Numpad 7)"""
+        return win32api.GetAsyncKeyState(0x7) < 0
+
     def is_aiming(self):
         """Check if right mouse button is pressed"""
         return win32api.GetAsyncKeyState(0x02) < 0
@@ -107,7 +107,7 @@ class AimAssist:
     
     def run(self):
         """Main program loop"""
-        print("Aim assist started. Press Numpad 6 to exit.")
+        print("Aimbot started. Press Numpad 6 to exit.")
         
         while True:
             time.sleep(0.001)  # Small delay to reduce CPU usage
@@ -124,9 +124,9 @@ class AimAssist:
                     offset_x, offset_y = self.calculate_aim_offset(target_location)
                     self.perform_aim_action(offset_x, offset_y)
         
-        print("Aim assist stopped.")
+        print("Aimbot stopped.")
 
 
 if __name__ == "__main__":
-    aim_assist = AimAssist()
-    aim_assist.run()
+    aimbot = Aimbot()
+    aimbot.run()
