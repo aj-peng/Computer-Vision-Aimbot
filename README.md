@@ -1,6 +1,6 @@
 Run: python aim_assist.py  
 Aim: Hold RMB  
-Exit: Press Numpad 6 (hear beep confirmation)  
+Exit: Press Numpad 7 (hear beep confirmation)  
 
 **Note**:  
 - Required libraries: pywin32, numpy, opencv-python, mss
